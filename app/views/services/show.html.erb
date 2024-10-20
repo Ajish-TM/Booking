@@ -1,0 +1,19 @@
+<h1><%= @service.name %></h1>
+
+<p><%= @service.description %></p>
+<p>Duration: <%= @service.duration %> minutes</p>
+<p>Price: $<%= @service.price %></p>
+
+<% if user_signed_in? %>
+  <h3>Select a Time Slot</h3>
+  <%= form_with url: bookings_path, method: :post do |form| %>
+    <%= hidden_field_tag :service_id, @service.id %>
+    <%= label_tag :booking_time, "Choose a booking time:" %>
+    <%= datetime_local_field_tag :booking_time %>
+    <%= form.submit "Book This Service" %>
+  <% end %>
+<% else %>
+  <p><%= link_to 'Login to book this service', new_user_session_path %></p>
+<% end %>
+
+<%= link_to 'Back to Services', services_path %>

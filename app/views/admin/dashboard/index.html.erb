@@ -1,0 +1,13 @@
+<h1>Admin Dashboard</h1>
+
+<div class="dashboard-stats">
+  <p><strong>Total Users:</strong> <%= @users_count %></p>
+  <p><strong>Total Services:</strong> <%= @services_count %></p>
+  <p><strong>Total Bookings:</strong> <%= @bookings_count %></p>
+</div>
+
+<div class="admin-actions">
+  <h2>Manage Services</h2>
+  <%= link_to 'View All Services', admin_services_path, class: 'btn btn-primary' %>
+  <%= link_to 'Create New Service', new_admin_service_path, class: 'btn btn-success' %>
+</div>

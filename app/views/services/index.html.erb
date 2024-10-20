@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
+  <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %>
+<% end %>
+<% unless user_signed_in? %>
+  <p><%= link_to 'Login to book services', new_user_session_path %></p>
+<% end %>
+<h1>Available Services</h1>
+
+
+<ul>
+  <% @services.each do |service| %>
+    <li>
+      <h3><%= service.name %> - $<%= service.price %></h3>
+      <p><%= service.description %></p>
+      <p>Duration: <%= service.duration %> minutes</p>
+      <%= link_to 'View Details', service_path(service) %>
+      <%= link_to 'Book Now', bookings_path(service_id: service.id), method: :post if user_signed_in? %>
+    </li>
+  <% end %>
+</ul>
+
+<% unless user_signed_in? %>
+  <p><%= link_to 'Login to book services', new_user_session_path %></p>
+<% end %>
