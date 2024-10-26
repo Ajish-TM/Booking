@@ -6,10 +6,9 @@
   <% @services.each do |service| %>
     <li>
       <%= service.name %> - $<%= service.price %>
+      <%= link_to 'Show', admin_service_path(service), class: "btn btn-info" %> <!-- Show button -->
       <%= link_to 'Edit', edit_admin_service_path(service), class: "btn btn-warning" %>
       <%= link_to 'Delete', admin_service_path(service), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     </li>
   <% end %>
 </ul>
-
-<%= link_to 'Back to Services', services_path, class: "btn btn-secondary" %>
