@@ -1,0 +1,8 @@
+<h1><%= @service.name %></h1>
+
+<p><strong>Description:</strong> <%= @service.description %></p>
+<p><strong>Duration:</strong> <%= @service.duration %> minutes</p>
+<p><strong>Price:</strong> $<%= @service.price %></p>
+
+<%= link_to 'Edit', edit_admin_service_path(@service), class: 'btn btn-warning' %>
+<%= link_to 'Back to Services', admin_services_path, class: 'btn btn-secondary' %>

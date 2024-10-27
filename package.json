@@ -1,0 +1,12 @@
+{
+  "name": "booking_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ajish-TM/Booking.git",
+  "author": "Ajish-TM <ajish.tm427@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@rails/ujs": "^7.1.3-4",
+    "jquery": "^3.7.1"
+  }
+}
